@@ -21,4 +21,10 @@ class Lwlistaposts extends Component
     {
         return view("livewire.posts.lwlistaposts");
     }
+
+    public function fncSave()
+    {
+        // dd($this->name);
+        $this->title = $this->name;
+    }
 }

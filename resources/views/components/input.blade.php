@@ -1,69 +1,7 @@
-{{-- resources\views\components\forms\input.blade.php --}}
-@props([
-    "disabled" => false,
-    "type" => "text",
-    "label" => null,
-    "idName" => "",
-    "value" => null,
-    "class" =>
-        "font-normal text-blue-500 dark:text-blue-100 block mt-1 w-full rounded-md form-input border-blue-400 focus:border-blue-600",
-    "options" => [], // Para el tipo select
-])
+@props(["disabled" => false])
 
-@if ($label && $type != "checkbox" && $type != "select")
-  <x-label class="ml-2"
-           for="{{ $idName }}">{{ $label }}</x-label>
-@endif
-
-@if ($type == "textarea")
-  <textarea id="{{ $idName }}"
-            name="{{ $idName }}"
-            {{ $disabled ? "disabled" : "" }}
-            {!! $attributes->merge([
-                "class" => $class,
-            ]) !!}>{{ $value }}</textarea>
-@elseif ($type == "checkbox")
-  <div class="flex items-center">
-    <input id="{{ $idName }}"
-           name="{{ $idName }}"
-           type="checkbox"
-           value="{{ $value }}"
-           {{ $disabled ? "disabled" : "" }}
-           {!! $attributes->merge([
-               "class" => "form-checkbox h-4 w-4 rounded-full text-blue-600",
-           ]) !!} />
-    @if ($label)
-      <label class="ml-2 text-sm text-blue-600 dark:text-blue-100"
-             for="{{ $idName }}">{{ $label }}</label>
-    @endif
-  </div>
-@elseif ($type == "select")
-  @if ($label)
-    <x-label class="ml-2"
-             for="{{ $idName }}">{{ $label }}</x-label>
-  @endif
-  <select id="{{ $idName }}"
-          name="{{ $idName }}"
-          {{ $disabled ? "disabled" : "" }}
-          {!! $attributes->merge([
-              "class" => $class,
-          ]) !!}>
-    <option value=""
-            disabled>Seleccione</option>
-    @foreach ($options as $key => $option)
-      <option value="{{ $key }}"
-              {{ $disabled ? "disabled" : "" }}>{{ $option }}</option>
-    @endforeach
-  </select>
-@else
-  <input id="{{ $idName }}"
-         name="{{ $idName }}"
-         type="{{ $type }}"
-         value="{{ $value }}"
-         {{ $disabled ? "disabled" : "" }}
-         {!! $attributes->merge([
-             "class" => $class,
-         ]) !!} />
-@endif
-
-<x-input-error for="{{ $idName }}" />
+<input {{ $disabled ? "disabled" : "" }}
+       {!! $attributes->merge([
+           "class" =>
+               "border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm",
+       ]) !!}>

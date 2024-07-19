@@ -1,54 +1,49 @@
-{{-- resources\views\components\tw_button.blade.php --}}
-@props([
-    "name" => "button",
-    "type" => "button",
-    "color" => "blue",
-    "class" => "",
-    "classFix" =>
-        "inline-flex items-center justify-center p-2 focus:outline-none focus:ring transition ease-in-out duration-150 ",
-    "icon" => null,
-    "iconType" => "outline", // Default icon type, outline or solid
-    "ejecuta" => "",
-])
+{{-- resources/views/components/button.blade.php --}}
+
+@props(["color" => "green", "disabled" => false, "icon" => false])
 
 @php
   $colors = [
       "blue" =>
-          "font-medium bg-blue-600 dark:bg-blue-400 text-blue-100 dark:text-blue-800 hover:bg-blue-400 dark:hover:bg-blue-200 active:bg-blue-400 dark:active:bg-blue-200 focus:ring-blue-700 dark:focus:ring-blue-500 disabled:bg-blue-300 dark:disabled:bg-blue-200 disabled:cursor-not-allowed",
+          "bg-blue-600 text-blue-100 border-blue-600 hover:bg-blue-100 hover:text-blue-600 active:bg-blue-700 focus:ring-blue-700 focus:bg-blue-700 disabled:bg-blue-300 dark:bg-blue-400 dark:text-blue-800 dark:border-blue-400 dark:hover:bg-blue-800 dark:hover:text-blue-400 dark:active:bg-blue-500 dark:focus:ring-blue-500 dark:disabled:bg-blue-200 disabled:cursor-not-allowed",
       "red" =>
-          "font-medium bg-red-600 dark:bg-red-400 text-red-100 dark:text-red-800 hover:bg-red-400 dark:hover:bg-red-200 active:bg-red-400 dark:active:bg-red-200 focus:ring-red-700 dark:focus:ring-red-500 disabled:bg-red-300 dark:disabled:bg-red-200 disabled:cursor-not-allowed",
+          "bg-red-600 text-red-100 border-red-600 hover:bg-red-100 hover:text-red-600 active:bg-red-700 focus:ring-red-700 focus:bg-red-700 disabled:bg-red-300 dark:bg-red-400 dark:text-red-800 dark:border-red-400 dark:hover:bg-red-800 dark:hover:text-red-400 dark:active:bg-red-500 dark:focus:ring-red-500 dark:disabled:bg-red-200 disabled:cursor-not-allowed",
       "gray" =>
-          "font-medium bg-gray-600 dark:bg-gray-400 text-gray-100 dark:text-gray-800 hover:bg-gray-400 dark:hover:bg-gray-200 active:bg-gray-400 dark:active:bg-gray-200 focus:ring-gray-700 dark:focus:ring-gray-500 disabled:bg-gray-300 dark:disabled:bg-gray-200 disabled:cursor-not-allowed",
+          "bg-gray-600 text-gray-100 border-gray-600 hover:bg-gray-100 hover:text-gray-600 active:bg-gray-700 focus:ring-gray-700 focus:bg-gray-700 disabled:bg-gray-300 dark:bg-gray-400 dark:text-gray-800 dark:border-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-400 dark:active:bg-gray-500 dark:focus:ring-gray-500 dark:disabled:bg-gray-200 disabled:cursor-not-allowed",
       "green" =>
-          "font-medium bg-green-600 dark:bg-green-400 text-green-100 dark:text-green-800 hover:bg-green-400 dark:hover:bg-green-200 active:bg-green-400 dark:active:bg-green-200 focus:ring-green-700 dark:focus:ring-green-500 disabled:bg-green-300 dark:disabled:bg-green-200 disabled:cursor-not-allowed",
+          "bg-green-600 text-green-100 border-green-600 hover:bg-green-100 hover:text-green-600 active:bg-green-700 focus:ring-green-700 focus:bg-green-700 disabled:bg-green-300 dark:bg-green-400 dark:text-green-800 dark:border-green-400 dark:hover:bg-green-800 dark:hover:text-green-400 dark:active:bg-green-500 dark:focus:ring-green-500 dark:disabled:bg-green-200 disabled:cursor-not-allowed",
       "yellow" =>
-          "font-medium bg-yellow-600 dark:bg-yellow-400 text-yellow-100 dark:text-yellow-800 hover:bg-yellow-400 dark:hover:bg-yellow-200 active:bg-yellow-400 dark:active:bg-yellow-200 focus:ring-yellow-700 dark:focus:ring-yellow-500 disabled:bg-yellow-300 dark:disabled:bg-yellow-200 disabled:cursor-not-allowed",
+          "bg-yellow-600 text-yellow-100 border-yellow-600 hover:bg-yellow-100 hover:text-yellow-600 active:bg-yellow-700 focus:ring-yellow-700 focus:bg-yellow-700 disabled:bg-yellow-300 dark:bg-yellow-400 dark:text-yellow-800 dark:border-yellow-400 dark:hover:bg-yellow-800 dark:hover:text-yellow-400 dark:active:bg-yellow-500 dark:focus:ring-yellow-500 dark:disabled:bg-yellow-200 disabled:cursor-not-allowed",
       "violet" =>
-          "font-medium bg-violet-600 dark:bg-violet-400 text-violet-100 dark:text-violet-800 hover:bg-violet-400 dark:hover:bg-violet-200 active:bg-violet-400 dark:active:bg-violet-200 focus:ring-violet-700 dark:focus:ring-violet-500 disabled:bg-violet-300 dark:disabled:bg-violet-200 disabled:cursor-not-allowed",
+          "bg-violet-600 text-violet-100 border-violet-600 hover:bg-violet-100 hover:text-violet-600 active:bg-violet-700 focus:ring-violet-700 focus:bg-violet-700 disabled:bg-violet-300 dark:bg-violet-400 dark:text-violet-800 dark:border-violet-400 dark:hover:bg-violet-800 dark:hover:text-violet-400 dark:active:bg-violet-500 dark:focus:ring-violet-500 dark:disabled:bg-violet-200 disabled:cursor-not-allowed",
       "black" =>
-          "font-medium bg-black-600 dark:bg-black-400 text-black-100 dark:text-black-800 hover:bg-black-400 dark:hover:bg-black-200 active:bg-black-400 dark:active:bg-black-200 focus:ring-black-700 dark:focus:ring-black-500 disabled:bg-black-300 dark:disabled:bg-black-200 disabled:cursor-not-allowed",
+          "bg-black-600 text-black-100 border-black-600 hover:bg-black-100 hover:text-black-600 active:bg-black-700 focus:ring-black-700 focus:bg-black-700 disabled:bg-black-300 dark:bg-black-400 dark:text-black-800 dark:border-black-400 dark:hover:bg-black-800 dark:hover:text-black-400 dark:active:bg-black-500 dark:focus:ring-black-500 dark:disabled:bg-black-200 disabled:cursor-not-allowed",
       "white" =>
-          "font-medium bg-gray-50 dark:bg-gray-50 text-gray-800 dark:text-gray-50 hover:bg-gray-700 dark:hover:bg-gray-50 active:bg-gray-50 dark:active:bg-gray-50 focus:ring-gray-50 dark:focus:ring-gray-50 disabled:bg-gray-50 dark:disabled:bg-gray-50 disabled:cursor-not-allowed",
+          "bg-white-600 text-white-100 border-white-600 hover:bg-white-100 hover:text-white-600 active:bg-white-700 focus:ring-white-700 focus:bg-white-700 disabled:bg-white-300 dark:bg-white-400 dark:text-white-800 dark:border-white-400 dark:hover:bg-white-800 dark:hover:text-white-400 dark:active:bg-white-500 dark:focus:ring-white-500 dark:disabled:bg-white-200 disabled:cursor-not-allowed",
       "transparent" =>
-          "font-medium bg-transparent text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600 active:bg-gray-300 dark:active:bg-gray-700 focus:ring-gray-500 dark:focus:ring-gray-400 disabled:bg-transparent disabled:cursor-not-allowed",
+          "bg-transparent-600 text-transparent-100 border-transparent-600 hover:bg-transparent-100 hover:text-transparent-600 active:bg-transparent-700 focus:ring-transparent-700 focus:bg-transparent-700 disabled:bg-transparent-300 dark:bg-transparent-400 dark:text-transparent-800 dark:border-transparent-400 dark:hover:bg-transparent-800 dark:hover:text-transparent-400 dark:active:bg-transparent-500 dark:focus:ring-transparent-500 dark:disabled:bg-transparent-200 disabled:cursor-not-allowed",
   ];
-  $defaultColor = "gray"; // Definir un color por defecto
 
   // Comprobar si el color existe en el arreglo, si no, usar el color por defecto
-  $colorClass = array_key_exists($color, $colors) ? $colors[$color] : $colors[$defaultColor];
+  $colorClass = array_key_exists($color, $colors) ? $colors[$color] : $colors["blue"]; // Definir un color por defecto
 
-  $buttonClass = $classFix . $colorClass . " " . $class;
 @endphp
 
-<button class="{{ $buttonClass }} {{ $slot->isEmpty() ? "min-w-1 rounded-full" : "min-w-20 max-h-10 mt-1 rounded-md" }}"
-        id="{{ $name }}"
-        name="{{ $name }}"
-        type="{{ $type }}"
-        @if ($ejecuta) wire:click="{{ $ejecuta }}" @endif>
+<button {{ $attributes->merge([
+    "type" => "submit",
+    "class" =>
+        "inline-flex items-center px-4 py-2 border border-transparent rounded-md font-semibold text-xs tracking-widest transition ease-in-out duration-150 " .
+        $colorClass,
+]) }}
+        @if ($disabled) disabled @endif>
   @if ($icon)
-    <x-forms.tw_icons class="{{ $slot->isEmpty() ? "m-auto h-5 w-5" : "mr-2 h-5 w-5" }}"
-                      :name="$icon"
-                      :type="$iconType" />
+    <x-icons class="{{ $slot->isEmpty() ? "m-auto h-5 w-5" : "mr-2 h-5 w-5" }}"
+             :name="$icon" />
   @endif
   {{ $slot }}
 </button>
+
+{{-- <button
+        {{ $attributes->merge(["type" => "submit", "class" => "inline-flex items-center px-4 py-2 bg-gray-800 dark:bg-gray-200 border border-transparent rounded-md font-semibold text-xs text-white dark:text-gray-800 uppercase tracking-widest hover:bg-gray-700 dark:hover:bg-white focus:bg-gray-700 dark:focus:bg-white active:bg-gray-900 dark:active:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 disabled:opacity-50 transition ease-in-out duration-150"]) }}>
+  {{ $slot }}
+</button> --}}
