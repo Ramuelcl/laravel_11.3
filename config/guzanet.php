@@ -7,6 +7,7 @@ return [
     "appLogo" => "images/app/guzanet.png",
     "appNombre" => "Ramuel Gonzalez",
     "appMail" => "Ramuelcl@gmail.com",
+    "appLargoClave" => 3,
 
     "idioma" => "es-CL",
     "icon_paths" => [

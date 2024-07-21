@@ -37,6 +37,8 @@
         </div>
       </header>
     @endif
+    <!-- Include the Messages component -->
+    <livewire:forms.messages />
 
     <!-- Page Content -->
     <main>
