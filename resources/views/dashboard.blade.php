@@ -10,12 +10,13 @@
       <div class="overflow-hidden bg-white shadow-xl dark:bg-gray-800 sm:rounded-lg">
 
         {{-- @livewire("forms.paises") --}}
-
-        {{-- @livewire("contador") --}}
-        @livewire("posts.lwlistaposts", [
-            "title" => "hola mundo desde la vista",
-            "user" => 1,
-        ])
+        <x-tarjeta titulo="Mi Tarjeta">
+          {{-- @livewire("contador") --}}
+          @livewire("posts.lwlistaposts", [
+              "title" => "hola mundo desde la vista",
+              "user" => 1,
+          ])
+        </x-tarjeta>
       </div>
     </div>
   </div>

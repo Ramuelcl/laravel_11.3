@@ -104,6 +104,26 @@ if (!function_exists("fncStoragePath")) {
     }
 }
 
+if (!function_exists("fncIconPath")) {
+    function fncIconPath($nombre, $tipo)
+    {
+        if ($tipo == "solid") {
+            $path = config("guzanet.icon_paths.solid");
+        } else {
+            $path = config("guzanet.icon_paths.outline");
+        }
+
+        $iconFilePath = public_path("$path/$nombre.blade.php"); // Use public_path()
+
+        // Check if the file exists
+        if (file_exists($iconFilePath)) {
+            return $iconFilePath; // Return the asset path
+        } else {
+            return "archivo no existe";
+        }
+    }
+}
+
 // Regex quick reference
 // [abc]     A single character: a, b or c
 // [^abc]     Any single character but a, b, or c

@@ -4,15 +4,15 @@
 return [
     "clave" => "valor",
     "appEmpresa" => "Guzanet",
-    "appLogo" => "images/app/guzanet.png",
+    "appLogo" => "app/logo/guzanet.png", //public\app\logo
     "appNombre" => "Ramuel Gonzalez",
     "appMail" => "Ramuelcl@gmail.com",
     "appLargoClave" => 3,
 
     "idioma" => "es-CL",
     "icon_paths" => [
-        "solid" => "images/app/icons/solid",
-        "outline" => "images/app/icons/outline",
+        "solid" => "app/icons/solid", //public\app\icons
+        "outline" => "app/icons/outline", //public\app\icons
     ],
     "appThemes" => [
         "colores" => ["azul", "verde", "amarillo", "rojo"],
