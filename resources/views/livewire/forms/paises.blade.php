@@ -17,12 +17,12 @@
   </div> --}}
   <div class="mt-4">
     <h2 class="text-xl font-semibold">Opciones</h2>
-    <pre class="p-2 bg-gray-100 rounded-md">{{ json_encode($paises) }}</pre>
+    <pre class="rounded-md bg-gray-100 p-2">{{ json_encode($paises) }}</pre>
   </div>
 
   <div class="mt-4">
     <h2 class="text-xl font-semibold">Seleccionadas</h2>
-    <pre class="p-2 bg-gray-100 rounded-md">{{ json_encode($seleccionadas) }}</pre>
+    <pre class="rounded-md bg-gray-100 p-2">{{ json_encode($seleccionadas) }}</pre>
   </div>
   <div class="mt-1">
     @livewire("forms.select2", [$paises, $seleccionadas])

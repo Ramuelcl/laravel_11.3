@@ -10,7 +10,7 @@ class Select2 extends Component
     public $claveUnica, $Activa, $eliminar;
     public $vIndex = false;
     public $newOption = "";
-    protected $listeners = ["select2" => "Select2Updated"];
+    protected $listeners = ["Select2Updated" => "Select2Updated"];
 
     public function mount($opciones = [], $seleccionadas = [], $eliminar = false, $multiple = true)
     {

@@ -25,7 +25,7 @@
        class="w-full p-1 m-0 overflow-auto bg-white border border-gray-300 rounded-md shadow-md min-h-32 border-1 max-h-32 shadow-blue-500">
     <div class="scrollbar-w-2 scrollbar-track-blue-100 scrollbar-thumb-blue-400">
       @foreach ($opciones as $opcion)
-        {{ $claveUnica }}-{{ $opcion["id"] }}
+        {{-- {{ $claveUnica }}-{{ $opcion["id"] }} --}}
         <div class="flex items-center justify-between p-1"
              wire:key="{{ $claveUnica }}-{{ $opcion["id"] }}">
           <label class="flex items-center">

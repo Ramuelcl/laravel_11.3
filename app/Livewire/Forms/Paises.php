@@ -13,7 +13,7 @@ class Paises extends Component
     public $pais;
     public $paises = [["id" => 1, "name" => "Peru"], ["id" => 2, "name" => "Colombia"], ["id" => 5, "name" => "Argentina"]];
     public $seleccionadas = [2];
-    protected $listeners = ["select2" => "Select2Updated"];
+    protected $listeners = ["Select2Updated" => "Select2Updated"];
 
     public function mount()
     {
@@ -25,7 +25,7 @@ class Paises extends Component
         return view("livewire.forms.paises", ["opciones" => $this->paises, "seleccionadas" => [2]]);
     }
 
-    public function Select2($opciones, $seleccionadas)
+    public function Select2Updated($opciones, $seleccionadas)
     {
         dd($opciones, $seleccionadas);
         $this->paises = $opciones;
