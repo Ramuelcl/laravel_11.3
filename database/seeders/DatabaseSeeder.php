@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\backend\categoria;
+use App\Models\post\post;
 use Illuminate\Database\Seeder;
 
 use Illuminate\Support\Facades\Storage;
@@ -20,14 +22,14 @@ class DatabaseSeeder extends Seeder
          * en tiempo  de ejecución
          *
 
-        use Illuminate\Support\Facades\Storage;
+        // use Illuminate\Support\Facades\Storage;
 
-        $disk = Storage::build([
-            'driver' => 'local',
-            'root' => '/path/to/root',
-        ]);
+        // $disk = Storage::build([
+        //     'driver' => 'local',
+        //     'root' => '/path/to/root',
+        // ]);
 
-        $disk->put('image.jpg', $content);
+        // $disk->put('image.jpg', $content);
          **/
 
         /**
@@ -67,5 +69,11 @@ class DatabaseSeeder extends Seeder
             // ProjectSeeder::class,
             // InvoiceSeeder::class,
         ]);
+
+        // Seed categories
+        categoria::factory()->count(5)->create();
+
+        // Seed posts
+        post::factory()->count(10)->create();
     }
 }

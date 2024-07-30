@@ -13,7 +13,7 @@ class post extends Model
 {
     use HasFactory;
 
-    protected $fillable = ["titulo", "contenido", "estado", "is_active", "image_path", "categoria_id"];
+    protected $fillable = ["titulo", "contenido", "estado", "is_active", "image_path", "categoria_id", "marcas"];
     protected $hidden = ["slug"];
 
     // Accessor for the slug attribute
@@ -22,15 +22,16 @@ class post extends Model
         return Str::slug($this->nombre); // Generate the slug
     }
 
-    // relacion uno a muchos inversa
-    public function categorias()
+    // relacion uno a muchos polimorfica
+    public function categoria()
     {
-        return $this->belongsTo(Categoria::class);
+        return $this->hasOne(Categoria::class, "categoria_id");
+        // return $this->morphOne(Categoria::class, 'categorizable');
     }
 
     // relacion muchos a muchos
-    public function marcas()
-    {
-        return $this->belongsToMany(Marca::class);
-    }
+    // public function marcas()
+    // {
+    //     return $this->morphMany(Marca::class);
+    // }
 }

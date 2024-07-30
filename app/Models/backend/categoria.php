@@ -4,7 +4,7 @@ namespace App\Models\backend;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\backend\Categorizable;
+// use App\Models\backend\Categorizable;
 use App\Models\post\Post;
 use Illuminate\Support\Str; // Import the Str class
 
@@ -17,13 +17,8 @@ class categoria extends Model
 
     public function posts()
     {
-        return $this->hasMany(Post::class);
-    }
-
-    // Define the relationship with other models
-    public function categorizables()
-    {
-        return $this->morphMany(Categorizable::class, "categorizable");
+        return $this->belongsTo(Post::class);
+        // return $this->morphedByMany(Post::class, 'categorizable');
     }
 
     // Accessor for the slug attribute

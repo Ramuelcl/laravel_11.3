@@ -6,14 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\backend\Categoria;
 
-class categorizables extends Model
+class categoriables extends Model
 {
     use HasFactory;
 
-    protected $fillable = ["categoria_id", "categorizable_type", "categorizable_id"];
-
     // Define the relationship with the Category model
-    public function category()
+    public function categoriables()
     {
         return $this->belongsTo(Categoria::class);
     }

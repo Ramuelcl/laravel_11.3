@@ -22,8 +22,8 @@ class marcas extends Model
     }
 
     // relacion muchos a muchos
-    public function posts()
-    {
-        return $this->belongsToMany(Post::class);
-    }
+    // public function posts()
+    // {
+    //     return $this->belongsToMany(Post::class);
+    // }
 }

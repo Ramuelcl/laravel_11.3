@@ -4,7 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration {
+return new class extends Migration
+{
     public $table = "categorias";
 
     public function up(): void
@@ -13,16 +14,16 @@ return new class extends Migration {
             $table->id();
             $table->string("nombre", 32)->unique();
             $table->string("slug", 32);
-            // $table->foreignId("categoria_id")->contrained()->onDelete("cascade");
+            $table->unsignedBigInteger('parent_id')->nullable(); // Add this line
             $table->timestamps();
         });
 
-        // Schema::create("categorizables", function (Blueprint $table) {
-        //     $table->id();
-        //     $table->foreignId("categoria_id")->constrained()->onDelete("cascade");
-        //     $table->morphs("categorizable");
-        //     $table->timestamps();
-        // });
+        Schema::create("categoriables", function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger("categoriable_id");
+            $table->string("categoriable_type");
+            $table->timestamps();
+        });
     }
 
     /**
@@ -30,7 +31,7 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists("categorizables");
+        Schema::dropIfExists("categoriables");
         Schema::dropIfExists($this->table);
     }
 };
