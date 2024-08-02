@@ -6,19 +6,19 @@ use Livewire\Component;
 
 class Select2 extends Component
 {
-    public $check, $opcion, $opciones, $seleccionadas;
+    public $check, $opcion, $opciones, $seleccionadas, $multiple = false;
     public $claveUnica, $Activa, $eliminar;
     public $vIndex = false;
     public $newOption = "";
     protected $listeners = ["Select2Updated" => "Select2Updated"];
 
-    public function mount($opciones = [], $seleccionadas = [], $eliminar = false, $multiple = true)
+    public function mount($opciones = [], $seleccionadas = [], $eliminar = false, $multiple)
     {
         $this->claveUnica = substr(str_shuffle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, config("guzanet.appLargoClave", 3));
         $this->opciones = $opciones;
         $this->seleccionadas = $seleccionadas;
-        $this->multiple = $multiple;
-        $this->eliminar = $eliminar;
+        $this->multiple = $multiple ?? false;
+        $this->eliminar = $eliminar ?? false;
     }
 
     public function addOption()
@@ -34,7 +34,7 @@ class Select2 extends Component
                 // Si la descripción ya existe, puedes manejarlo aquí (por ejemplo, mostrar un mensaje de error)
                 // $this->dispatch("flashMessage", ["error", "Esta opción ya existe.", "top", 5000]);
 
-                session()->flash("error", "Esta opción ya existe.");
+                $this->session()->flash("error", "Esta opción ya existe.");
                 return;
             }
 

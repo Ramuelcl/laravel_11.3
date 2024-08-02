@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\post\Post;
 use Illuminate\Support\Str; // Import the Str class
 
-class categoria extends Model
+class Categoria extends Model
 {
     use HasFactory;
 

@@ -64,4 +64,14 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    /**
+     * necesario para el login actual
+     * @return self
+     */
+    public function whithFullData(): self
+    {
+        $this->getAllPermissions();
+        return $this;
+    }
 }

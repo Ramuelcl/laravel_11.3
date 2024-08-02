@@ -6,9 +6,9 @@ use App\Models\backend\UserSetting;
 use App\Models\User;
 
 // agregamos
-use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 // Spatie
 // use Spatie\Permission\Models\Role;
 use Spatie\Permission\Traits\HasRoles;
@@ -25,17 +25,6 @@ class UserSeeder extends Seeder
     public function __construct()
     {
         $users = [
-            'super-admin' => [
-                'name' => 'Super Admin',
-                'email' => 'ramuelcl@gmail.com',
-                'profile_photo_path' => 'app/avatars/admin.png',
-                'email_verified_at' => now(),
-                'password' => Hash::make('password'), //bcrypt('0Admin')
-                // 'password' => bcrypt('password'),
-                'remember_token' => Str::random(10),
-                // 'role' => 'Super-admin',
-                'is_active' => true,
-            ],
             'admin' => [
                 'name' => 'Admin',
                 'email' => 'admin@mail.com',
@@ -51,7 +40,7 @@ class UserSeeder extends Seeder
                 'email' => 'guest@mail.com',
                 'profile_photo_path' => 'app/avatars/guest.png',
                 'email_verified_at' => now(),
-                'password' => Hash::make('guest'), //bcrypt('guest')
+                'password' => Hash::make('password'), //bcrypt('guest')
                 'remember_token' => Str::random(10),
                 // 'role' => 'guest',
                 'is_active' => true,

@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Livewire\Posts\lwlistaposts;
 use App\Http\Controllers\principalController;
+use App\Livewire\Posts\lwlistaposts;
+use Illuminate\Support\Facades\Route;
 
 Route::get("/", function () {
     return view("welcome");

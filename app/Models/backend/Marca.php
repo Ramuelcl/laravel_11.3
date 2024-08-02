@@ -8,7 +8,7 @@ use App\Models\post\Post;
 
 use Illuminate\Support\Str; // Import the Str class
 
-class marcas extends Model
+class Marca extends Model
 {
     use HasFactory;
 
