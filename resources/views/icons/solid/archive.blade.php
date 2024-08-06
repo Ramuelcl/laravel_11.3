@@ -1,4 +1,9 @@
-<svg {{ $attributes }} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-    <path d="M4 3a2 2 0 100 4h12a2 2 0 100-4H4z" />
-    <path fill-rule="evenodd" d="M3 8h14v7a2 2 0 01-2 2H5a2 2 0 01-2-2V8zm5 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z" clip-rule="evenodd" />
+<!-- resources/views/icons/solid/archive.blade.php -->
+
+@props(['width' => '24', 'height' => '24'])
+
+<svg xmlns="http://www.w3.org/2000/svg" width="{{ $width }}" height="{{ $height }}" viewBox="0 0 24 24"
+		fill="none">
+		<rect width="24" height="24" fill="#4A5568" />
+		<path d="M4 4H20V8H4V4ZM20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V8H20ZM9 12V16H15V12H9Z" fill="white" />
 </svg>
