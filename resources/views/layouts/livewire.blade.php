@@ -1,4 +1,4 @@
-<!-- resources/views/layouts/admin.blade.php -->
+<!-- resources/views/layouts/livewire.blade.php -->
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -21,24 +21,20 @@
 </head>
 
 <body>
-  <!-- Page Heading -->
-  <header class="bg-white shadow">
-    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-      <!-- Navigation Menu -->
-      {{-- @livewire('navigation-menu') --}}
-      @include("navigation-menu")
-    </div>
+  <header>
+    Encabezado común para Livewire
   </header>
 
   <main>
-    <div class="min-h-screen">
+    <div class="container mx-auto">
       {{ $slot }}
     </div>
   </main>
 
   <footer>
-    <!-- Pie de página común para administradores -->
+    Pie de página común para Livewire
   </footer>
+
   @livewireScripts
 </body>
 

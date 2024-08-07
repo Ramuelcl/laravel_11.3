@@ -28,10 +28,12 @@
       {{-- @livewire('navigation-menu') --}}
       @include("navigation-menu")
     </div>
-  </header <main>
-  <div class="min-h-screen">
-    {{ $slot }}
-  </div>
+  </header>
+
+  <main>
+    <div class="min-h-screen">
+      {{ $slot }}
+    </div>
   </main>
 
   <footer>

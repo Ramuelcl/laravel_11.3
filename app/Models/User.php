@@ -3,6 +3,9 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use App\Models\tareas\Tarea;
+//
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -64,5 +67,17 @@ class User extends Authenticatable
       'email_verified_at' => 'datetime',
       'password' => 'hashed',
     ];
+  }
+
+  public function isAdmin()
+  {
+    // Logic to determine if the user is an admin
+    // Example:
+    return $this->role === 'admin'; // Assuming you have a 'role' field
+  }
+
+  public function tareas()
+  {
+    return $this->hasMany(Tarea::class);
   }
 }

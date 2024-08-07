@@ -40,7 +40,7 @@ class PageController extends Controller
     // Obtiene el usuario autenticado
     $user = Auth::user();
 
-    // Retorna la vista 'tareas' con el usuario
-    return view('tareas', compact('user'));
+    // Retorna la vista 'livewire.tareas.lwtareas' con el usuario
+    return view('livewire.tareas.lwtareas', ['user' => $user]);
   }
 }
