@@ -2,7 +2,7 @@
 {{-- @dd($id); --}}
 @if ($title)
   <label for="{{ $id }}"
-         {{ $attributes->merge(['class' => 'inline-flex whitespace-nowrap items-center text-base font-normal text-blue-500 dark:text-blue-100']) }}>
+         {{ $attributes->merge(['class' => 'inline-flex whitespace-nowrap items-center text-base font-normal text-blue-500']) }}>
     <input id="{{ $id }}"
            type="checkbox"
            value="{{ $value }}"

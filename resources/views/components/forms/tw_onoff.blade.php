@@ -23,6 +23,6 @@
   }
 
 @endphp
-<div class="font-normal text-blue-900 dark:text-blue-100">
+<div class="font-normal text-blue-900">
   {{ $estado }}
 </div>

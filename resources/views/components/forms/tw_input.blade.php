@@ -6,7 +6,7 @@
     'idName' => '',
     'value' => null,
     'class' =>
-        'font-normal text-blue-500 dark:text-blue-100 block mt-1 w-full rounded-md form-input border-blue-400 focus:border-blue-600',
+        'font-normal text-blue-500 block mt-1 w-full rounded-md form-input border-blue-400 focus:border-blue-600',
     'options' => [], // Para el tipo select
 ])
 
@@ -33,7 +33,7 @@
                'class' => 'form-checkbox h-4 w-4 rounded-full text-blue-600',
            ]) !!} />
     @if ($label)
-      <label class="ml-2 text-sm text-blue-600 dark:text-blue-100"
+      <label class="ml-2 text-sm text-blue-600"
              for="{{ $idName }}">{{ $label }}</label>
     @endif
   </div>
